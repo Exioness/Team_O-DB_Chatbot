@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Team_O-DB_Chatbot
 
 A web-based chat application with Python backend and HTML/JavaScript frontend.
@@ -108,3 +109,6 @@ Team_O-DB_Chatbot/
 - Make sure to properly configure CORS settings in production
 - Default frontend server is for development only
 - Refer to API documentation at `/docs` endpoint for available API routes
+=======
+# Team_O-DB_Chatbot
+>>>>>>> 9a36e3a52125e8daabfc6ef82d8693d7062f87b7
