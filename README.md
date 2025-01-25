@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Team_O-DB_Chatbot
 
 A web-based chat application with Python backend and HTML/JavaScript frontend.
