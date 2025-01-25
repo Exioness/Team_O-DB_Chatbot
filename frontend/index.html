@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Juicer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+</head>
+<body class="dark-mode"> 
+  <!-- ============================= WELCOME PAGE ============================= -->
+  <div id="welcomeSection" class="welcome-container">
+    <h1 id="welcomeTitle" class="welcome-header">Welcome to Data Juicer</h1>
+    <p id="welcomeText" class="welcome-text">Log in with your account to continue</p>
+    <!-- Container with login and signup buttons -->
+    <div id="welcomeBtn" class="button-container">
+      <button class="btn-login" onclick="navigateTo('authSection'); return false;">Log in</button>
+      <button class="btn-signup" onclick="navigateTo('authSection'); return false;">Sign up</button>
+    </div>
+  </div>
+
+  <!-- ======================= LOGIN / REGISTER SECTION ======================= -->
+  <div id="authSection" class="auth-container hidden">
+    <h1 id="authTitle" class="auth-title">Welcome back</h1>
+    
+    <!-- Show errors here if any -->
+    <div id="authError" class="error hidden"></div>
+    
+    <!-- LOGIN FORM (default visible) -->
+    <form id="loginForm" class="auth-form">
+      <div class="auth-field">
+        <label for="loginEmail">Email address</label>
+        <!-- Default to admin@admin -->
+        <input type="email" id="loginEmail" placeholder=" " />
+      </div>
+      <div class="auth-field">
+        <label for="loginPassword">Password</label>
+        <!-- Default to admin -->
+        <input type="password" id="loginPassword" placeholder=" "/>
+      </div>
+      <button type="submit" class="auth-btn">Continue</button>
+      <p class="auth-switch" id="goRegister">
+        Don’t have an account?
+        <span class="link"> <a href="#">Sign up</a></span>
+      </p>
+    </form>
+
+    <!-- REGISTER FORM (hidden by default) -->
+    <form id="registerForm" class="auth-form hidden">
+      <h1>Create new account</h1>
+      <div class="auth-field">
+        <label for="registerEmail">Email address</label>
+        <input type="email" id="registerEmail" placeholder=" "/>
+      </div>
+      <div class="auth-field">
+        <label for="registerPassword">Password</label>
+        <input type="password" id="registerPassword" placeholder=" "/>
+      </div>
+      <button type="submit" class="auth-btn">Sign up</button>
+      <p class="auth-switch" id="goLogin">
+        Already have an account?
+        <span class="link"> <a href="#">Log in</a></span>
+      </p>
+    </form>
+  </div>
+
+  <!-- ======================= MAIN UI (HIDDEN UNTIL LOGGED IN) ======================= -->
+  <div class="page-container hidden" id="mainUI">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <button id="btnNewChat" class="new-chat-btn">+ New Chat</button>
+        <div id="chatList" class="chat-list"></div>
+      </div>
+      <hr class="sidebar-divider"/>
+      <div class="sidebar-bottom">
+        <div class="nav-action" id="toggleThemeBtn">Light mode</div>
+        <div class="nav-action" id="btnClearChats">Clear conversations</div>
+        <!-- Optional: Show Schema button if you still need that feature -->
+        <div class="nav-action" id="btnShowSchema">Show Schema</div>
+        <div class="nav-action" id="btnLogout">Log out</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <!-- LANDING VIEW -->
+      <div id="landingView" class="landing-view">
+        <h1 class="headline">How can I help you?</h1>
+        <div class="landing-description">
+          <p>A chatbot is a computer program that simulates human conversation...</p>
+        </div>
+        <h2 class="sub-headline">Choose an action</h2>
+        <div class="landing-buttons-area">
+          <!-- Renamed to match script references -->
+          <button id="btnShowChats" class="primary-btn">Look through all chats</button>
+          <button id="btnProcessQuery" class="secondary-btn">Process Query</button>
+        </div>
+      </div>
+
+      <!-- CHAT VIEW -->
+      <div id="chatView" class="chat-view hidden">
+        <div class="chat-window" id="chatWindow"></div>
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" class="chat-input" placeholder="Type your message here..."/>
+          <button id="sendBtn" class="send-btn">›</button>
+          <button id="stopBtn" class="stop-btn">Stop generating</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ======================= OPTIONAL MODALS ======================= -->
+  <div class="modal" id="chooseDbModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Select something or create chat</h2>
+      </div>
+      <div class="modal-table" id="availableDbsContainer"></div>
+      <div class="modal-footer">
+        <button id="createChatBtn" class="primary-btn">Create Chat</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="dbModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>All Data</h2>
+      </div>
+      <div class="modal-table">
+        <div class="db-list" id="dbListContainer"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeDbModal" class="secondary-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load the JavaScript at the end -->
+  <script src="script.js"></script>
+</body>
+</html>
