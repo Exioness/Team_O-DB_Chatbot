@@ -109,5 +109,3 @@ Team_O-DB_Chatbot/
 - Default frontend server is for development only
 - Refer to API documentation at `/docs` endpoint for available API routes
 =======
-# Team_O-DB_Chatbot
->>>>>>> 9a36e3a52125e8daabfc6ef82d8693d7062f87b7
